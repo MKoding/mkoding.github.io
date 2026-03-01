@@ -1,17 +1,313 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+    pageTitle="MKoding — Ingeniería de software con criterio"
+    pageDescription="Ingeniería de software y dirección tecnológica con criterio. Ayudamos a empresas a empezar bien sus proyectos digitales."
+>
+    <!-- HERO -->
+    <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
+        <div class="hero-bg-container"></div>
+
+        <div class="section-content">
+            <div class="content-block max-w-3xl">
+                <h1 class="mb-6">MKoding</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
+                    Ingeniería de software y dirección tecnológica con criterio.
+                </p>
+                <p class="text-lg mb-8">
+                    Somos una pequeña firma de ingeniería de software que ayuda a empresas a empezar
+                    bien sus proyectos digitales. Desde una web o tienda online hasta una app o un
+                    sistema de inventarios, te acompanamos para dar los primeros pasos con claridad.
+                    Y si ya tienes equipo tecnico, te ayudamos a ordenar, decidir y avanzar sin
+                    perder tiempo ni calidad.
+                </p>
+
+                <div class="flex justify-center md:justify-start">
+                    <a href="mailto:contacto@mkoding.com" class="btn"> Hablemos </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="pb-24 md:pb-32">
+        <div class="section-content">
+            <div class="space-y-16">
+                <div class="section-header">
+                    <h2
+                        class="split-heading"
+                        data-split-heading
+                        data-split-mobile-only
+                        data-split-start="0.75"
+                        data-split-end="0.6"
+                        data-split-title-delay="0.5"
+                    >
+                        <span class="split-icon" data-split-icon="left">
+                            <img src="/|.svg" alt="" class="split-icon-image theme-switch-icon" />
+                        </span>
+                        <span class="split-title md:px-2" data-split-title>
+                            Cuando falta equipo o claridad
+                        </span>
+                        <span class="split-icon" data-split-icon="right">
+                            <img src="/<.svg" alt="" class="split-icon-image theme-switch-icon" />
+                        </span>
+                    </h2>
+                </div>
+
+                <div class="numbered-items">
+                    <div
+                        class="numbered-item scroll-parallax parallax-right"
+                        data-parallax-freeze-point="0.5"
+                    >
+                        <div class="numbered-item-icon">
+                            <div class="numbered-item-circle">1</div>
+                        </div>
+                        <div class="numbered-item-content">
+                            <h3 class="numbered-item-title">No hay equipo tecnico interno.</h3>
+                            <p class="numbered-item-description">
+                                Hay ganas de empezar, pero falta quien guie el camino del
+                                desarrollo. Todo se decide sobre la marcha y se pierde tiempo y
+                                dinero buscando soluciones.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="numbered-item scroll-parallax parallax-right"
+                        data-parallax-freeze-point="0.6"
+                    >
+                        <div class="numbered-item-icon">
+                            <div class="numbered-item-circle">2</div>
+                        </div>
+                        <div class="numbered-item-content">
+                            <h3 class="numbered-item-title">No sabes por donde empezar.</h3>
+                            <p class="numbered-item-description">
+                                Web, app, inventarios, CRM. Hay demasiadas opciones y poca claridad
+                                sobre cómo el software aporta valor a tu empresa, qué es lo primero
+                                que hay que hacer y qué es lo que realmente importa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="numbered-item scroll-parallax parallax-right"
+                        data-parallax-freeze-point="0.7"
+                    >
+                        <div class="numbered-item-icon">
+                            <div class="numbered-item-circle">3</div>
+                        </div>
+                        <div class="numbered-item-content">
+                            <h3 class="numbered-item-title">Proveedores que cambian cada año.</h3>
+                            <p class="numbered-item-description">
+                                Cada nueva persona entrega algo distinto. Nadie conoce el sistema,
+                                ni la forma en la que se trabaja en tu negocio y mantener el
+                                software cuesta cada vez más.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="numbered-item scroll-parallax parallax-right"
+                        data-parallax-freeze-point="0.7"
+                    >
+                        <div class="numbered-item-icon">
+                            <div class="numbered-item-circle">4</div>
+                        </div>
+                        <div class="numbered-item-content">
+                            <h3 class="numbered-item-title">
+                                Soluciones pegadas y sin mantenimiento.
+                            </h3>
+                            <p class="numbered-item-description">
+                                Se combinan herramientas sin integración: hojas de cálculo, software
+                                de terceros y procesos manuales que no escalan ni se complementan
+                                entre sí.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="numbered-item scroll-parallax parallax-right"
+                        data-parallax-freeze-point="0.8"
+                    >
+                        <div class="numbered-item-icon">
+                            <div class="numbered-item-circle">5</div>
+                        </div>
+                        <div class="numbered-item-content">
+                            <h3 class="numbered-item-title">Miedo a invertir sin claridad.</h3>
+                            <p class="numbered-item-description">
+                                La decisión de empezar se retrasa por no saber si la inversión va a
+                                funcionar o si el proyecto quedará a medias.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider">
+                    <p class="divider-text">
+                        <strong>El problema no es el tamaño de la empresa.</strong> Es la falta de claridad
+                        y de alguien que acompañe el proceso con responsabilidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPUESTA -->
+    <section class="pb-24 md:pb-32">
+        <div class="section-content">
+            <div class="section-header">
+                <h2
+                    class="split-heading"
+                    data-split-heading
+                    data-split-start="0.75"
+                    data-split-end="0.6"
+                    data-split-title-delay="0.5"
+                >
+                    <span class="split-icon" data-split-icon="left">
+                        <img
+                            src="/|.svg"
+                            alt=""
+                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
+                        />
+                    </span>
+                    <span class="split-title md:px-2" data-split-title>
+                        Enfoque artesanal y responsable
+                    </span>
+                    <span class="split-icon" data-split-icon="right">
+                        <img
+                            src="/<.svg"
+                            alt=""
+                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
+                        />
+                    </span>
+                </h2>
+            </div>
+
+            <div class="content-block">
+                <p class="scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
+                    MKoding no es una agencia que entrega software del que no se hace cargo. Tampoco
+                    somos consultores que solo dejan un informe sobre la mesa sin una solución
+                    clara. Acompañamos el proceso desde el principio: definimos objetivos, bajamos
+                    las ideas a un plan y construimos una base sólida para crecer, teniendo siempre
+                    en cuenta tu negocio, la calidad y el sentido común.
+                </p>
+
+                <p class="scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
+                    Si ya tienes un equipo, trabajamos codo con codo para ordenar, priorizar y
+                    decidir mejor. Si no tienes equipo, empezamos contigo paso a paso. Web, app,
+                    ecommerce o sistemas internos. Siempre con foco en tu negocio, hacer un software
+                    de calidad y que realmente resuelva tus problemas.
+                </p>
+
+                <p class="scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
+                    Nuestro papel es claro: acompañarte como ingenieros y como una dirección técnica
+                    interna. Analizamos tu situación, definimos prioridades y ejecutamos cuando hace
+                    falta, sin delegar la responsabilidad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="pb-24 md:pb-32">
+        <div class="section-content">
+            <div class="section-header flex justify-center">
+                <h2
+                    class="split-heading"
+                    data-split-heading
+                    data-split-start="0.75"
+                    data-split-end="0.6"
+                    data-split-title-delay="0.5"
+                >
+                    <span class="split-icon" data-split-icon="left">
+                        <img
+                            src="/|.svg"
+                            alt=""
+                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
+                        />
+                    </span>
+                    <span class="split-title md:px-2" data-split-title>
+                        Servicios con criterio técnico
+                    </span>
+                    <span class="split-icon" data-split-icon="right">
+                        <img
+                            src="/<.svg"
+                            alt=""
+                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
+                        />
+                    </span>
+                </h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
+                    <h3 class="mb-4">Arranque digital</h3>
+                    <p class="text-base leading-relaxed">
+                        Te ayudamos a empezar con una base clara: web, ecommerce, app o sistema
+                        interno. De cero, ajustado a tus necesidades y mantenible a lo largo de los
+                        años.
+                    </p>
+                </div>
+
+                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
+                    <h3 class="mb-4">Dirección técnica</h3>
+                    <p class="text-base leading-relaxed">
+                        Te acompañamos en las decisiones clave, en la selección de herramientas e
+                        incluso te ayudamos a formar tu propio equipo de desarrollo. Siempre con
+                        foco en tu negocio, la calidad y en construir soluciones que duren.
+                    </p>
+                </div>
+
+                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
+                    <h3 class="mb-4">Desarrollo y mejora</h3>
+                    <p class="text-base leading-relaxed">
+                        Revisamos y mejoramos lo que ya tienes o construimos nuevas funcionalidades
+                        con pragmatismo, calidad y una visión clara. Siempre con foco en tu negocio,
+                        sin perder tiempo ni dinero en soluciones complejas o a medias.
+                    </p>
+                </div>
+
+                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
+                    <h3 class="mb-4">Mentoría y acompañamiento</h3>
+                    <p class="text-base leading-relaxed">
+                        Si ya tienes tu propio equipo y quieres potenciarlo, lo acompañamos con
+                        asesoría, mentorías y buenas prácticas para que crezca con autonomía. Desde
+                        la arquitectura y flujos de trabajo hasta el código limpio y sostenible en
+                        el tiempo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO FINAL -->
+    <section class="pb-32 md:pb-40">
+        <div class="section-content">
+            <div class="section-header text-center">
+                <div class="mb-16 md:mb-20 flex justify-center">
+                    <div class="mkoding-logo-wrapper">
+                        <img
+                            src="/mkoding-circle-white.svg"
+                            alt="MKoding"
+                            class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-dark"
+                        />
+                    </div>
+                    <div class="mkoding-logo-wrapper">
+                        <img
+                            src="/mkoding-circle-black.svg"
+                            alt="MKoding"
+                            class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-light"
+                        />
+                    </div>
+                </div>
+                <h2>Tu empresa depende del software y merece estar bien construido.</h2>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="mailto:contacto@mkoding.com" class="btn"> Cuéntame tu caso </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

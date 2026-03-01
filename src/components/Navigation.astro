@@ -1,0 +1,40 @@
+---
+interface Props {
+    currentPage: 'home' | 'about';
+}
+
+const { currentPage } = Astro.props;
+---
+
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-[var(--color-bg)]/80">
+    <div class="section-content py-2">
+        <div class="flex items-center justify-between">
+            <a href="/" class="flex items-center logo-hover">
+                <img src="/mkoding.svg" alt="Logo MKoding" class="h-10 w-auto theme-switch-icon" />
+            </a>
+            <div class="flex items-center gap-8">
+                <a
+                    href="/"
+                    class={`font-medium transition-all ${
+                        currentPage === 'home'
+                            ? 'text-[var(--color-accent-text)] hover:text-[var(--color-accent-text-hover)] hover:-translate-y-0.5'
+                            : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:-translate-y-0.5'
+                    }`}
+                >
+                    Inicio
+                </a>
+                <a
+                    href="/sobre-nosotros"
+                    class={`font-medium transition-all ${
+                        currentPage === 'about'
+                            ? 'text-[var(--color-accent-text)] hover:text-[var(--color-accent-text-hover)] hover:-translate-y-0.5'
+                            : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:-translate-y-0.5'
+                    }`}
+                >
+                    Sobre MKoding
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
