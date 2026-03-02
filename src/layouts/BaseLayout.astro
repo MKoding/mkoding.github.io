@@ -8,10 +8,6 @@ const {
     pageTitle = 'MKoding — Ingeniería de software con criterio',
     pageDescription = 'Ingeniería de software y dirección tecnológica con enfoque responsable y mantenible.',
 } = Astro.props;
-
-const currentPath = Astro.url.pathname;
-
-const currentPage = currentPath.includes('sobre-nosotros') ? 'about' : 'home';
 ---
 
 <!doctype html>
@@ -45,10 +41,10 @@ const currentPage = currentPath.includes('sobre-nosotros') ? 'about' : 'home';
     </head>
 
     <body class="antialiased transition-colors duration-300">
-        <Navigation currentPage={currentPage} />
+        <Navigation />
         <ThemeToggle />
 
-        <main class="pt-16">
+        <main class="pt-14">
             <slot />
         </main>
 
