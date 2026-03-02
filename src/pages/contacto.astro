@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    pageTitle="Contacto — MKoding"
+    pageDescription="Ponte en contacto con MKoding. Cuéntanos sobre tu proyecto, tus desafíos y cómo podemos ayudarte."
+>
+    <!-- HERO -->
+    <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
+        <div class="hero-bg-container"></div>
+
+        <div class="section-content">
+            <div class="content-block max-w-3xl">
+                <h1 class="mb-6">Hablemos de tu proyecto</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
+                    Cuéntanos sobre tus desafíos tecnológicos. Sin compromisos, sin presión.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section class="pb-24 md:pb-32">
+        <div class="section-content">
+            <div class="max-w-2xl mx-auto">
+                <form id="contact-form" class="space-y-8">
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium mb-2"> Nombre </label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            required
+                            class="form-input"
+                            placeholder="Tu nombre"
+                        />
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2"> Email </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="form-input"
+                            placeholder="tu@email.com"
+                        />
+                    </div>
+
+                    <!-- Empresa -->
+                    <div>
+                        <label for="empresa" class="block text-sm font-medium mb-2">
+                            Empresa (opcional)
+                        </label>
+                        <input
+                            type="text"
+                            id="empresa"
+                            name="empresa"
+                            class="form-input"
+                            placeholder="Nombre de tu empresa"
+                        />
+                    </div>
+
+                    <!-- Tipo de proyecto -->
+                    <div>
+                        <label for="tipo" class="block text-sm font-medium mb-2">
+                            ¿De qué trata tu proyecto?
+                        </label>
+                        <select id="tipo" name="tipo" required class="form-select">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Desarrollo web">Desarrollo web</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Aplicación móvil">Aplicación móvil</option>
+                            <option value="Sistemas internos">Sistemas internos</option>
+                            <option value="Dirección técnica">Dirección técnica</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div>
+                        <label for="mensaje" class="block text-sm font-medium mb-2">
+                            Cuéntanos sobre tu proyecto
+                        </label>
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            required
+                            rows="6"
+                            class="form-textarea"
+                            placeholder="Describe brevemente tu proyecto, desafíos y qué esperas conseguir..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn text-white font-bold rounded-lg w-full">
+                        Enviar mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTRAS FORMAS DE CONTACTO -->
+    <section class="pb-24 md:pb-32">
+        <div class="section-content">
+            <div class="max-w-2xl mx-auto">
+                <div>
+                    <div class="flex justify-center mb-12 md:mb-18">
+                        <h2
+                            class="split-heading"
+                            data-split-heading
+                            data-split-start="0.85"
+                            data-split-end="0.75"
+                            data-split-title-delay="0.5"
+                        >
+                            <span class="split-icon" data-split-icon="left">
+                                <img
+                                    src="/icons/mkoding-split-1.svg"
+                                    alt=""
+                                    class="split-icon-image theme-switch-icon pr-0.2 md:pr-0.75 lg:pr-0.5"
+                                />
+                            </span>
+                            <span class="split-title px-1 md:px-1" data-split-title>
+                                Otras formas de contactarnos
+                            </span>
+                            <span class="split-icon" data-split-icon="right">
+                                <img
+                                    src="/icons/mkoding-split-2.svg"
+                                    alt=""
+                                    class="split-icon-image theme-switch-icon pl-0.2 md:pl-0.75 lg:pl-0.5"
+                                />
+                            </span>
+                        </h2>
+                    </div>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <!-- Email -->
+                        <a href="mailto:contacto@mkoding.com" title="Email" class="contact-button">
+                            <img src="/icons/email.svg" alt="Email" class="contact-icon" />
+                        </a>
+
+                        <!-- Teléfono -->
+                        <a href="tel:+34XXX000000" title="Teléfono" class="contact-button">
+                            <img src="/icons/phone.svg" alt="Teléfono" class="contact-icon" />
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a
+                            href="https://wa.me/34XXX000000"
+                            target="_blank"
+                            title="WhatsApp"
+                            class="contact-button"
+                        >
+                            <img src="/icons/whatsapp.svg" alt="WhatsApp" class="contact-icon" />
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a
+                            href="https://linkedin.com/company/mkoding"
+                            target="_blank"
+                            title="LinkedIn"
+                            class="contact-button"
+                        >
+                            <img src="/icons/linkedin.svg" alt="LinkedIn" class="contact-icon" />
+                        </a>
+
+                        <!-- GitHub -->
+                        <a
+                            href="https://github.com/mkoding"
+                            target="_blank"
+                            title="GitHub"
+                            class="contact-button"
+                        >
+                            <img src="/icons/github.svg" alt="GitHub" class="contact-icon" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const form = document.getElementById('contact-form');
+
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const nombre = (document.getElementById('nombre') as HTMLInputElement)?.value ?? '';
+                const email = (document.getElementById('email') as HTMLInputElement)?.value ?? '';
+                const empresa =
+                    (document.getElementById('empresa') as HTMLInputElement)?.value ?? '';
+                const tipo = (document.getElementById('tipo') as HTMLSelectElement)?.value ?? '';
+                const mensaje =
+                    (document.getElementById('mensaje') as HTMLTextAreaElement)?.value ?? '';
+
+                // Validar que los campos obligatorios no estén vacíos
+                if (!nombre.trim() || !email.trim() || !tipo.trim() || !mensaje.trim()) {
+                    alert('Por favor, completa todos los campos obligatorios.');
+                    return;
+                }
+
+                const asunto = `Nuevo contacto de ${nombre} - ${tipo}`;
+                const cuerpo = `
+                    Nombre: ${nombre}
+                    Email: ${email}
+                    Empresa: ${empresa.trim() || 'No especificada'}
+                    Tipo de proyecto: ${tipo}
+
+                    Mensaje:
+                    ${mensaje}
+                `.trim();
+
+                const mailtoLink = `mailto:contacto@mkoding.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+                window.location.href = mailtoLink;
+            });
+        }
+    </script>
+</BaseLayout>
