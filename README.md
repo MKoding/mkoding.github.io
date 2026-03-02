@@ -2,7 +2,7 @@
 
 Sitio web oficial de MKoding — Ingeniería de software con criterio y enfoque artesanal.
 
-🌐 **[mkoding.github.io](https://mkoding.github.io)**
+🌐 **[mkodingsoft.com](https://mkodingsoft.com/)**
 
 ## Licencia
 
