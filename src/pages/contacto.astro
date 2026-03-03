@@ -139,7 +139,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </div>
                     <div class="flex flex-wrap gap-4 justify-center">
                         <!-- Email -->
-                        <a href="mailto:contacto@mkoding.com" title="Email" class="contact-button">
+                        <a href="mailto:contacto@mkodingsoft.com" title="Email" class="contact-button">
                             <img src="/icons/email.svg" alt="Email" class="contact-icon" />
                         </a>
 
@@ -215,7 +215,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     ${mensaje}
                 `.trim();
 
-                const mailtoLink = `mailto:contacto@mkoding.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+                const mailtoLink = `mailto:contacto@mkodingsoft.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
                 window.location.href = mailtoLink;
             });
         }
