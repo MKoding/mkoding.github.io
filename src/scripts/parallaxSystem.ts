@@ -51,6 +51,28 @@ const parallaxElementsConfig: ParallaxElementConfig[] = [];
 const splitHeadingsConfig: SplitHeadingConfig[] = [];
 const mikelParallaxEffectsConfig: MikelParallaxEffectConfig[] = [];
 let isScrollAnimationScheduled = false;
+let isFirstParallaxRender = true;
+let stableViewportHeight = 0;
+// Keep animations transform-driven across all browsers to avoid jank on mobile and desktop.
+let useLightweightAnimation = true;
+
+function getCurrentViewportHeight(): number {
+    if (typeof window === 'undefined') return 0;
+    const visualViewportHeight = window.visualViewport?.height ?? 0;
+    // Use the larger value to avoid over-splitting headings on initial mobile browser chrome state.
+    return Math.round(Math.max(window.innerHeight, visualViewportHeight));
+}
+
+function refreshStableViewportHeight(): void {
+    stableViewportHeight = getCurrentViewportHeight();
+}
+
+function getViewportHeight(): number {
+    if (stableViewportHeight <= 0) {
+        refreshStableViewportHeight();
+    }
+    return stableViewportHeight;
+}
 
 function extractParallaxConfig(element: HTMLElement): ParallaxElementConfig {
     const movementDistance =
@@ -140,17 +162,26 @@ function extractSplitHeadingConfig(element: HTMLElement): SplitHeadingConfig | n
 
     element.setAttribute('data-split-ready', 'true');
 
+    const titleWidth = title.offsetWidth;
+    const baseOffset = initialGap / 2;
+
     return {
         element,
         leftIcon,
         rightIcon,
         title,
-        splitDistance: 0,
+        splitDistance: titleWidth / 2 + baseOffset,
         titleDelay,
         startRatio,
         endRatio,
         initialGap,
     };
+}
+
+function recalculateSplitDistance(config: SplitHeadingConfig): void {
+    const titleWidth = config.title.offsetWidth;
+    const baseOffset = config.initialGap / 2;
+    config.splitDistance = titleWidth / 2 + baseOffset;
 }
 
 function updateSplitHeadings(windowHeight: number): void {
@@ -170,7 +201,7 @@ function updateSplitHeadings(windowHeight: number): void {
         }
 
         const elementRect = config.element.getBoundingClientRect();
-        const progress = prefersReducedMotion
+        let progress = prefersReducedMotion
             ? 1
             : calculateRevealProgress(
                   elementRect,
@@ -178,19 +209,22 @@ function updateSplitHeadings(windowHeight: number): void {
                   config.startRatio,
                   config.endRatio
               );
+
+        // First paint: headings already visible should start in final state (no separated icons).
+        if (isFirstParallaxRender && elementRect.top < windowHeight * 1.15) {
+            progress = 1;
+        }
         const titleProgress = clampValue(
             (progress - config.titleDelay) / (1 - config.titleDelay),
             0,
             1
         );
-        const baseOffset = config.initialGap / 2;
-        const titleWidth = config.title.offsetWidth;
-        const totalDistance = titleWidth / 2 + baseOffset;
+        const totalDistance = config.splitDistance;
 
-        config.leftIcon.style.transform = `translateX(${totalDistance * (1 - progress)}px)`;
-        config.rightIcon.style.transform = `translateX(${-totalDistance * (1 - progress)}px)`;
+        config.leftIcon.style.transform = `translate3d(${totalDistance * (1 - progress)}px, 0, 0)`;
+        config.rightIcon.style.transform = `translate3d(${-totalDistance * (1 - progress)}px, 0, 0)`;
         config.title.style.opacity = String(titleProgress);
-        config.title.style.transform = `translateY(${(1 - titleProgress) * 6}px)`;
+        config.title.style.transform = `translate3d(0, ${(1 - titleProgress) * 6}px, 0)`;
     });
 }
 
@@ -220,18 +254,24 @@ function updateMikelParallaxEffects(windowHeight: number): void {
 
         // Progress: 0 cuando el elemento entra por abajo (startPoint), 1 cuando llega al freeze-point
         const progress = clampValue(
-            (windowHeight - elementRect.top - startPointPixels) / (freezePointPixels - startPointPixels),
+            (windowHeight - elementRect.top - startPointPixels) /
+                (freezePointPixels - startPointPixels),
             0,
             1
         );
-
-        // Interpolate grayscale
-        const grayscale = 100 - progress * 100;
 
         // Interpolate transform
         const translateY = -8 * progress;
         const scale = 1 + 0.02 * progress;
         const rotate = 3 * progress;
+
+        if (useLightweightAnimation) {
+            config.element.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale}) rotateZ(${rotate}deg)`;
+            return;
+        }
+
+        // Interpolate grayscale
+        const grayscale = 100 - progress * 100;
 
         // Interpolate shadows
         const shadowLight1 = interpolateColor(
@@ -246,7 +286,7 @@ function updateMikelParallaxEffects(windowHeight: number): void {
         );
 
         config.element.style.filter = `grayscale(${grayscale}%)`;
-        config.element.style.transform = `translateY(${translateY}px) scale(${scale}) rotateZ(${rotate}deg)`;
+        config.element.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale}) rotateZ(${rotate}deg)`;
         config.element.style.boxShadow = `0 10px 25px ${shadowLight1}, 0 25px 50px ${shadowLight2}`;
     });
 }
@@ -265,7 +305,7 @@ function extractMikelParallaxConfig(element: HTMLElement): MikelParallaxEffectCo
 }
 
 function updateParallaxTransforms(): void {
-    const windowHeight = window.innerHeight;
+    const windowHeight = getViewportHeight();
 
     parallaxElementsConfig.forEach((config) => {
         const elementRect = config.element.getBoundingClientRect();
@@ -276,7 +316,7 @@ function updateParallaxTransforms(): void {
             Math.min(progress, 1) * config.movementDistance * config.movementDirection;
         const opacityValue = calculateOpacity(progress, config.minimumOpacity);
 
-        config.element.style.transform = `translateX(${translationXDistance}px)`;
+        config.element.style.transform = `translate3d(${translationXDistance}px, 0, 0)`;
         config.element.style.opacity = String(opacityValue);
     });
 
@@ -287,6 +327,8 @@ function updateParallaxTransforms(): void {
     if (mikelParallaxEffectsConfig.length > 0) {
         updateMikelParallaxEffects(windowHeight);
     }
+
+    isFirstParallaxRender = false;
 }
 
 function scheduleParallaxUpdate(): void {
@@ -300,6 +342,8 @@ function scheduleParallaxUpdate(): void {
 }
 
 function initializeParallax(): void {
+    refreshStableViewportHeight();
+
     const parallaxElements = document.querySelectorAll<HTMLElement>(PARALLAX_SELECTOR);
 
     parallaxElements.forEach((element) => {
@@ -311,6 +355,7 @@ function initializeParallax(): void {
         const config = extractSplitHeadingConfig(element);
         if (config) splitHeadingsConfig.push(config);
     });
+    splitHeadingsConfig.forEach((config) => recalculateSplitDistance(config));
 
     const mikelParallaxEffects = document.querySelectorAll<HTMLElement>(MIKEL_PARALLAX_SELECTOR);
     mikelParallaxEffects.forEach((element) => {
@@ -330,6 +375,8 @@ function initializeParallax(): void {
             if (config) splitHeadingsConfig.push(config);
         });
 
+        splitHeadingsConfig.forEach((config) => recalculateSplitDistance(config));
+
         mikelParallaxEffectsConfig.length = 0;
         const updatedMikelEffects = document.querySelectorAll<HTMLElement>(MIKEL_PARALLAX_SELECTOR);
         updatedMikelEffects.forEach((element) => {
@@ -345,6 +392,26 @@ function initializeParallax(): void {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(handleResize, 150);
     });
+
+    window.visualViewport?.addEventListener('resize', () => {
+        refreshStableViewportHeight();
+        scheduleParallaxUpdate();
+    });
+
+    // Re-sync after full load and font resolution to avoid wrong initial split distance on reload.
+    function refreshSplitHeadingLayout(): void {
+        refreshStableViewportHeight();
+        splitHeadingsConfig.forEach((config) => recalculateSplitDistance(config));
+        scheduleParallaxUpdate();
+    }
+
+    window.addEventListener('load', refreshSplitHeadingLayout, { once: true });
+
+    if ('fonts' in document) {
+        (document as Document & { fonts: FontFaceSet }).fonts.ready.then(() => {
+            refreshSplitHeadingLayout();
+        });
+    }
 }
 
 export function initializeParallaxSystem(): void {

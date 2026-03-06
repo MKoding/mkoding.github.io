@@ -240,9 +240,9 @@
     .split-title {
         position: relative;
         z-index: 1;
-        transition:
-            opacity 0.2s linear,
-            transform 0.2s linear;
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
     }
 
     .split-icon {
@@ -250,6 +250,8 @@
         z-index: 0;
         pointer-events: none;
         flex-shrink: 0;
+        will-change: transform;
+        backface-visibility: hidden;
     }
 
     .split-icon-image {
@@ -267,7 +269,7 @@
 
     .split-heading[data-split-ready='true'] .split-title {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translate3d(0, 6px, 0);
     }
 
     @media (min-width: 768px) {
