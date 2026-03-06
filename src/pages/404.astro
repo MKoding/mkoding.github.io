@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    pageTitle="404 - Pagina no encontrada | MKoding"
+    pageDescription="La pagina que buscas no existe o ha cambiado de URL."
+>
+    <section class="error-404-section pt-32 pb-24 md:pt-40 md:pb-32 relative">
+        <div class="hero-bg-container"></div>
+
+        <div class="section-content">
+            <div class="content-block max-w-3xl text-center md:text-left">
+                <p class="text-sm font-semibold tracking-wide uppercase mb-4">Error 404</p>
+                <h1 class="mb-6">Esta pagina no existe</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
+                    Puede que la URL este mal escrita o que la pagina se haya movido.
+                </p>
+                <p class="text-lg mb-10">
+                    Si quieres, volvemos a empezar desde inicio o hablamos directamente de tu
+                    proyecto y te ayudamos a encontrar lo que necesitas.
+                </p>
+
+                <div class="error-404-buttons">
+                    <a href="/" class="btn">Ir al inicio</a>
+                    <a href="/contacto" class="btn">Ir a contacto</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
