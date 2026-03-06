@@ -1,11 +1,14 @@
 ---
 const currentPath = Astro.url.pathname;
 
-let currentPage: 'home' | 'about' | 'contact';
+let currentPage: 'home' | 'about' | 'faq' | 'contact';
 
 switch (true) {
     case currentPath.includes('sobre-nosotros'):
         currentPage = 'about';
+        break;
+    case currentPath.includes('preguntas-frecuentes'):
+        currentPage = 'faq';
         break;
     case currentPath.includes('contacto'):
         currentPage = 'contact';
@@ -48,6 +51,16 @@ switch (true) {
                     }`}
                 >
                     Sobre MKoding
+                </a>
+                <a
+                    href="/preguntas-frecuentes"
+                    class={`font-medium transition-all ${
+                        currentPage === 'faq'
+                            ? 'text-[var(--color-accent-text)] hover:text-[var(--color-accent-text-hover)] hover:-translate-y-0.5'
+                            : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:-translate-y-0.5'
+                    }`}
+                >
+                    FAQ
                 </a>
                 <a
                     href="/contacto"
@@ -118,6 +131,16 @@ switch (true) {
                 }`}
             >
                 Sobre MKoding
+            </a>
+            <a
+                href="/preguntas-frecuentes"
+                class={`mobile-menu-link text-2xl font-medium transition-all ${
+                    currentPage === 'faq'
+                        ? 'text-[var(--color-accent-text)]'
+                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
+                }`}
+            >
+                FAQ
             </a>
             <a
                 href="/contacto"
