@@ -393,6 +393,39 @@
         color: var(--color-accent-hover);
     }
 
+    /* 404 section and buttons */
+    .error-404-section {
+        min-height: calc(100vh - 8rem);
+        min-height: calc(100svh - 8rem);
+    }
+
+    .error-404-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .error-404-buttons .btn {
+        width: 100%;
+    }
+
+    @media (min-width: 640px) {
+        .error-404-buttons {
+            flex-direction: row;
+        }
+
+        .error-404-buttons .btn {
+            width: 25%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .error-404-buttons {
+            justify-content: center;
+        }
+    }
+
     #theme-toggle {
         background-color: var(--color-surface);
         color: var(--color-text);
