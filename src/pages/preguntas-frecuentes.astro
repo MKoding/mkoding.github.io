@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
     pageTitle="Preguntas frecuentes — MKoding"
-    pageDescription="Respuestas a las preguntas más comunes sobre cómo trabajamos, presupuestos, modelo de colaboración y tipos de proyectos en MKoding."
+    pageDescription="Respuestas a las preguntas más comunes sobre encaje de proyecto, presupuesto, arranque y continuidad en MKoding."
 >
     <!-- HERO -->
     <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
@@ -14,12 +14,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="content-block max-w-3xl">
                 <h1 class="mb-6">Preguntas frecuentes</h1>
                 <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
-                    Respuestas sobre cómo trabajamos, presupuestos y modelo de colaboración.
+                    Todo lo importante antes de empezar: encaje, presupuesto, arranque y evolución.
+                </p>
+                <p class="text-base md:text-lg text-foreground-secondary max-w-2xl">
+                    Hemos agrupado las respuestas en 4 apartados para que encuentres rápido lo que
+                    necesitas según el momento en el que estés.
                 </p>
             </div>
         </div>
     </section>
-    <!-- PREGUNTAS SOBRE NUESTRO ENFOQUE -->
+    <!-- ANTES DE EMPEZAR -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
             <div class="section-header flex justify-center">
@@ -38,9 +42,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                             class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
                         />
                     </span>
-                    <span class="split-title px-1 md:px-2" data-split-title>
-                        Sobre nuestro enfoque
-                    </span>
+                    <span class="split-title px-1 md:px-2" data-split-title>Antes de empezar</span>
                     <span class="split-icon" data-split-icon="right">
                         <img
                             src="/icons/mkoding-split-2.svg"
@@ -65,6 +67,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
 
                 <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
+                    <h3 class="mb-2">¿Qué tipo de proyectos encajan mejor?</h3>
+                    <p class="text-base leading-relaxed">
+                        Web corporativa, ecommerce, aplicaciones y sistemas internos en empresas que
+                        necesitan claridad técnica, cercanía y una ejecución responsable. Nos
+                        adaptamos a tus necesidades.
+                    </p>
+                </div>
+
+                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
                     <h3 class="mb-2">¿Qué os diferencia de otras consultoras?</h3>
                     <p class="text-base leading-relaxed">
                         Nuestro enfoque artesanal y la cercanía. No somos una gran consultora donde
@@ -74,21 +85,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         priorizamos calidad sobre volumen y construimos para que dure.
                     </p>
                 </div>
-
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
-                    <h3 class="mb-2">¿Ofrecéis soporte y mantenimiento después del proyecto?</h3>
-                    <p class="text-base leading-relaxed">
-                        Sí. No desaparecemos al finalizar. Queremos seguir acompañándote con
-                        mantenimiento, nuevas funcionalidades, formación o simplemente estar
-                        disponibles cuando surjan dudas. Preferimos relaciones a largo plazo donde
-                        conocemos tu negocio y ayudamos a que evolucione con criterio.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- PREGUNTAS SOBRE PRESUPUESTOS Y MODELO DE TRABAJO -->
+    <!-- PRESUPUESTO Y FORMA DE TRABAJO -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
             <div class="section-header flex justify-center">
@@ -107,7 +108,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         />
                     </span>
                     <span class="split-title px-1 md:px-2" data-split-title>
-                        Presupuestos y modelo de trabajo
+                        Presupuesto y forma de trabajo
                     </span>
                     <span class="split-icon" data-split-icon="right">
                         <img
@@ -146,20 +147,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         mejoras cuando sea necesario.
                     </p>
                 </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.7">
-                    <h3 class="mb-2">¿Qué tipo de proyectos encajan mejor?</h3>
-                    <p class="text-base leading-relaxed">
-                        Web corporativa, ecommerce, aplicaciones y sistemas internos en empresas que
-                        necesitan claridad técnica, cercanía y una ejecución responsable. Nos
-                        adaptamos a tus necesidades.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- PRIMEROS PASOS Y COLABORACION -->
+    <!-- ARRANQUE Y COLABORACION -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
             <div class="section-header flex justify-center">
@@ -177,9 +169,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                             class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
                         />
                     </span>
-                    <span class="split-title px-1 md:px-2" data-split-title>
-                        Primeros pasos y colaboración
-                    </span>
+                    <span class="split-title px-1 md:px-2" data-split-title
+                        >Arranque y colaboración</span
+                    >
                     <span class="split-icon" data-split-icon="right">
                         <img
                             src="/icons/mkoding-split-2.svg"
@@ -218,15 +210,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </p>
                 </div>
 
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.7">
-                    <h3 class="mb-2">¿Podemos empezar con algo pequeño y crecer después?</h3>
-                    <p class="text-base leading-relaxed">
-                        Sí. Es una forma habitual de trabajar con criterio: empezamos por lo que más
-                        impacto tiene, validamos resultados y evolucionamos por fases sin asumir mas
-                        riesgo del necesario al inicio.
-                    </p>
-                </div>
-
                 <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.75">
                     <h3 class="mb-2">¿Qué necesitáis de nuestra parte para trabajar bien?</h3>
                     <p class="text-base leading-relaxed">
@@ -235,8 +218,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         mantener ritmo sin fricción.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.8">
+    <!-- CONTINUIDAD Y EVOLUCION -->
+    <section class="pb-24 md:pb-32">
+        <div class="section-content">
+            <div class="section-header flex justify-center">
+                <h2
+                    class="split-heading"
+                    data-split-heading
+                    data-split-start="0.75"
+                    data-split-end="0.6"
+                    data-split-title-delay="0.5"
+                >
+                    <span class="split-icon" data-split-icon="left">
+                        <img
+                            src="/icons/mkoding-split-1.svg"
+                            alt=""
+                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
+                        />
+                    </span>
+                    <span class="split-title px-1 md:px-2" data-split-title
+                        >Continuidad y evolución</span
+                    >
+                    <span class="split-icon" data-split-icon="right">
+                        <img
+                            src="/icons/mkoding-split-2.svg"
+                            alt=""
+                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
+                        />
+                    </span>
+                </h2>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-6">
+                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
+                    <h3 class="mb-2">¿Ofrecéis soporte y mantenimiento después del proyecto?</h3>
+                    <p class="text-base leading-relaxed">
+                        Sí. No desaparecemos al finalizar. Queremos seguir acompañándote con
+                        mantenimiento, nuevas funcionalidades, formación o simplemente estar
+                        disponibles cuando surjan dudas. Preferimos relaciones a largo plazo donde
+                        conocemos tu negocio y ayudamos a que evolucione con criterio.
+                    </p>
+                </div>
+
+                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
+                    <h3 class="mb-2">¿Podemos empezar con algo pequeño y crecer después?</h3>
+                    <p class="text-base leading-relaxed">
+                        Sí. Es una forma habitual de trabajar con criterio: empezamos por lo que más
+                        impacto tiene, validamos resultados y evolucionamos por fases sin asumir más
+                        riesgo del necesario al inicio.
+                    </p>
+                </div>
+
+                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
                     <h3 class="mb-2">¿Y si ya tenemos software hecho y queremos mejorarlo?</h3>
                     <p class="text-base leading-relaxed">
                         También encaja. Podemos revisar lo que ya existe, detectar riesgos,
