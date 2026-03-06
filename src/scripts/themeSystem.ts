@@ -1,10 +1,20 @@
 type ThemeName = 'dark' | 'light';
 
 const THEME_STORAGE_KEY = 'theme';
-const DEFAULT_THEME: ThemeName = 'dark';
+const DEFAULT_THEME: ThemeName = 'light';
 const THEME_DARK: ThemeName = 'dark';
 const THEME_LIGHT: ThemeName = 'light';
 const ICON_HIDDEN_CLASS = 'hidden';
+
+function applyThemeColorMeta(themeName: ThemeName): void {
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (!themeColorMeta) {
+        return;
+    }
+
+    const color = themeName === THEME_DARK ? '#0f0f0f' : '#ffffff';
+    themeColorMeta.setAttribute('content', color);
+}
 
 function getStoredTheme(): ThemeName {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -21,6 +31,7 @@ function applyThemeToDocument(themeName: ThemeName): void {
     const isDarkTheme = themeName === THEME_DARK;
     sunIcon?.classList.toggle(ICON_HIDDEN_CLASS, isDarkTheme);
     moonIcon?.classList.toggle(ICON_HIDDEN_CLASS, !isDarkTheme);
+    applyThemeColorMeta(themeName);
 
     localStorage.setItem(THEME_STORAGE_KEY, themeName);
 }
