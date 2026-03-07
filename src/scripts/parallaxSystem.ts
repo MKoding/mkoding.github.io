@@ -265,11 +265,7 @@ function updateMikelParallaxEffects(windowHeight: number): void {
         const scale = 1 + 0.02 * progress;
         const rotate = 3 * progress;
 
-        if (useLightweightAnimation) {
-            config.element.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale}) rotateZ(${rotate}deg)`;
-            return;
-        }
-
+        // Mikel parallax effect always applies color and shadow effects (no lightweight mode)
         // Interpolate grayscale
         const grayscale = 100 - progress * 100;
 
