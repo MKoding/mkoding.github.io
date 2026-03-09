@@ -67,11 +67,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
                 <div class="numbered-items">
                     <div
-                        class="numbered-item scroll-parallax parallax-right"
+                        class="numbered-item scroll-parallax parallax-right md:items-center"
                         data-parallax-freeze-point="0.6"
                     >
-                        <div class="numbered-item-icon">
-                            <div class="numbered-item-circle">1</div>
+                        <div class="numbered-item-icon md:p-0">
+                            <div class="numbered-item-circle md:h-12 md:w-12">
+                                <div
+                                    class="numbered-item-icon-image md:h-8 md:w-8"
+                                    data-icon="compass"
+                                >
+                                </div>
+                            </div>
                         </div>
                         <div class="numbered-item-content">
                             <h3 class="numbered-item-title">No sabes por dónde empezar.</h3>
@@ -84,11 +90,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </div>
 
                     <div
-                        class="numbered-item scroll-parallax parallax-right"
+                        class="numbered-item scroll-parallax parallax-right md:items-center"
                         data-parallax-freeze-point="0.7"
                     >
-                        <div class="numbered-item-icon">
-                            <div class="numbered-item-circle">2</div>
+                        <div class="numbered-item-icon md:p-0">
+                            <div class="numbered-item-circle md:h-12 md:w-12">
+                                <div
+                                    class="numbered-item-icon-image md:h-8 md:w-8"
+                                    data-icon="wrench"
+                                >
+                                </div>
+                            </div>
                         </div>
                         <div class="numbered-item-content">
                             <h3 class="numbered-item-title">Proveedores que cambian cada año.</h3>
@@ -101,11 +113,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </div>
 
                     <div
-                        class="numbered-item scroll-parallax parallax-right"
+                        class="numbered-item scroll-parallax parallax-right md:items-center"
                         data-parallax-freeze-point="0.7"
                     >
-                        <div class="numbered-item-icon">
-                            <div class="numbered-item-circle">3</div>
+                        <div class="numbered-item-icon md:p-0">
+                            <div class="numbered-item-circle md:h-12 md:w-12">
+                                <div
+                                    class="numbered-item-icon-image md:h-8 md:w-8"
+                                    data-icon="puzzle"
+                                >
+                                </div>
+                            </div>
                         </div>
                         <div class="numbered-item-content">
                             <h3 class="numbered-item-title">
@@ -218,7 +236,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <div class="services-grid">
                 <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4">Arranque digital</h3>
+                    <h3 class="mb-4 flex items-center gap-3">
+                        <div class="service-icon" data-icon="rocket"></div>
+                        <span>Arranque digital</span>
+                    </h3>
                     <p class="text-base leading-relaxed">
                         Te ayudamos a empezar con una base clara: web, ecommerce, app o sistema
                         interno. De cero, ajustado a tus necesidades y mantenible a lo largo de los
@@ -227,7 +248,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
 
                 <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4">Dirección técnica</h3>
+                    <h3 class="mb-4 flex items-center gap-3">
+                        <div class="service-icon" data-icon="compass"></div>
+                        <span>Dirección técnica</span>
+                    </h3>
                     <p class="text-base leading-relaxed">
                         Te acompañamos en las decisiones clave, en la selección de herramientas e
                         incluso te ayudamos a formar tu propio equipo de desarrollo. Siempre con
@@ -236,7 +260,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
 
                 <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4">Desarrollo y mejora</h3>
+                    <h3 class="mb-4 flex items-center gap-3">
+                        <div class="service-icon" data-icon="gear"></div>
+                        <span>Desarrollo y mejora</span>
+                    </h3>
                     <p class="text-base leading-relaxed">
                         Revisamos y mejoramos lo que ya tienes o construimos nuevas funcionalidades
                         con pragmatismo, calidad y una visión clara. Siempre con foco en tu negocio,
@@ -245,7 +272,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
 
                 <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4">Mentoría y acompañamiento</h3>
+                    <h3 class="mb-4 flex items-center gap-3">
+                        <div class="service-icon" data-icon="school"></div>
+                        <span>Mentoría y acompañamiento</span>
+                    </h3>
                     <p class="text-base leading-relaxed">
                         Si ya tienes tu propio equipo y quieres potenciarlo, lo acompañamos con
                         asesoría, mentorías y buenas prácticas para que crezca con autonomía. Desde

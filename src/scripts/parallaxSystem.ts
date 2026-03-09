@@ -265,7 +265,6 @@ function updateMikelParallaxEffects(windowHeight: number): void {
         const scale = 1 + 0.02 * progress;
         const rotate = 3 * progress;
 
-        // Mikel parallax effect always applies color and shadow effects (no lightweight mode)
         // Interpolate grayscale
         const grayscale = 100 - progress * 100;
 

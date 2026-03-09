@@ -577,6 +577,76 @@
         font-size: 0.95rem;
     }
 
+    .numbered-item-icon-image {
+        @apply h-7 w-7 flex-shrink-0;
+        background-color: var(--color-accent);
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+    }
+
+    .numbered-item-icon-image[data-icon='compass'] {
+        -webkit-mask-image: url('/icons/compass.svg');
+        mask-image: url('/icons/compass.svg');
+    }
+
+    .numbered-item-icon-image[data-icon='wrench'] {
+        -webkit-mask-image: url('/icons/wrench.svg');
+        mask-image: url('/icons/wrench.svg');
+    }
+
+    .numbered-item-icon-image[data-icon='puzzle'] {
+        -webkit-mask-image: url('/icons/puzzle.svg');
+        mask-image: url('/icons/puzzle.svg');
+    }
+    .service-icon {
+        @apply h-6 w-6 flex-shrink-0;
+        background-color: var(--color-accent);
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+    }
+
+    .service-icon[data-icon='rocket'] {
+        -webkit-mask-image: url('/icons/rocket.svg');
+        mask-image: url('/icons/rocket.svg');
+    }
+
+    .service-icon[data-icon='compass'] {
+        -webkit-mask-image: url('/icons/compass.svg');
+        mask-image: url('/icons/compass.svg');
+    }
+
+    .service-icon[data-icon='gear'] {
+        -webkit-mask-image: url('/icons/gear.svg');
+        mask-image: url('/icons/gear.svg');
+    }
+
+    .service-icon[data-icon='school'] {
+        -webkit-mask-image: url('/icons/school.svg');
+        mask-image: url('/icons/school.svg');
+    }
+
+    .service-icon[data-icon='shield-check'] {
+        -webkit-mask-image: url('/icons/shield-check.svg');
+        mask-image: url('/icons/shield-check.svg');
+    }
+
+    .service-icon[data-icon='handshake'] {
+        -webkit-mask-image: url('/icons/handshake.svg');
+        mask-image: url('/icons/handshake.svg');
+    }
+
+    .service-icon[data-icon='hammer'] {
+        -webkit-mask-image: url('/icons/hammer.svg');
+        mask-image: url('/icons/hammer.svg');
+    }
     .numbered-item-content {
         @apply flex-1;
     }
