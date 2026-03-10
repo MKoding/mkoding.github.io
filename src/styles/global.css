@@ -588,9 +588,9 @@
         mask-repeat: no-repeat;
     }
 
-    .numbered-item-icon-image[data-icon='compass'] {
-        -webkit-mask-image: url('/icons/compass.svg');
-        mask-image: url('/icons/compass.svg');
+    .numbered-item-icon-image[data-icon='compass-off'] {
+        -webkit-mask-image: url('/icons/compass-off.svg');
+        mask-image: url('/icons/compass-off.svg');
     }
 
     .numbered-item-icon-image[data-icon='wrench'] {
@@ -602,6 +602,7 @@
         -webkit-mask-image: url('/icons/puzzle.svg');
         mask-image: url('/icons/puzzle.svg');
     }
+
     .service-icon {
         @apply h-6 w-6 flex-shrink-0;
         background-color: var(--color-accent);
@@ -643,10 +644,11 @@
         mask-image: url('/icons/handshake.svg');
     }
 
-    .service-icon[data-icon='hammer'] {
-        -webkit-mask-image: url('/icons/hammer.svg');
-        mask-image: url('/icons/hammer.svg');
+    .service-icon[data-icon='math-compass'] {
+        -webkit-mask-image: url('/icons/math-compass.svg');
+        mask-image: url('/icons/math-compass.svg');
     }
+
     .numbered-item-content {
         @apply flex-1;
     }
