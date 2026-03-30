@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     site: 'https://mkodingsoft.com',
     base: '/',
+    trailingSlash: 'always',
     integrations: [sitemap()],
     vite: {
         plugins: [tailwindcss()],
