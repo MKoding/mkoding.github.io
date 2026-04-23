@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
     title: string;
     description: string;
@@ -10,14 +12,11 @@ interface Props {
 const { title, description, icon, direction = 'right', freezePoint = 0.6 } = Astro.props;
 ---
 
-<div
-    class={`card scroll-parallax parallax-${direction}`}
-    data-parallax-freeze-point={freezePoint}
->
+<div class={`card scroll-parallax parallax-${direction}`} data-parallax-freeze-point={freezePoint}>
     {
         icon ? (
             <h3 class="mb-4 flex items-center gap-3">
-                <div class="service-icon" data-icon={icon} />
+                <Icon name={icon} class="h-6 w-6 flex-shrink-0 text-[var(--color-accent)]" />
                 <span>{title}</span>
             </h3>
         ) : (

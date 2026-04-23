@@ -23,7 +23,9 @@ const { title, subtitle, ctaText, ctaUrl } = Astro.props;
             {
                 ctaText && ctaUrl && (
                     <div class="flex justify-center md:justify-start">
-                        <a href={ctaUrl} class="btn">{ctaText}</a>
+                        <a href={ctaUrl} class="btn">
+                            {ctaText}
+                        </a>
                     </div>
                 )
             }

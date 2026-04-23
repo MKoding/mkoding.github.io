@@ -41,7 +41,7 @@ export class ScrollEngine {
                     }
                 }
             },
-            { rootMargin: '100px 0px' },
+            { rootMargin: '100px 0px' }
         );
         for (const instance of this.instances) observer.observe(instance.element);
     }

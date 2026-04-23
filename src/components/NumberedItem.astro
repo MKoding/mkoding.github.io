@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
     title: string;
     description: string;
@@ -20,7 +22,7 @@ const hasIcon = Boolean(icon);
         <div class={`numbered-item-circle${hasIcon ? ' md:h-12 md:w-12' : ''}`}>
             {
                 hasIcon ? (
-                    <div class="numbered-item-icon-image md:h-8 md:w-8" data-icon={icon} />
+                    <Icon name={icon} class="h-7 w-7 md:h-8 md:w-8 text-[var(--color-accent)]" />
                 ) : (
                     number
                 )

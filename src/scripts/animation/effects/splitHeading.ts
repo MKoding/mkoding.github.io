@@ -1,4 +1,10 @@
-import { parseAttr, clamp, type ScrollEffect, type EffectInstance, type ScrollContext } from '../types';
+import {
+    parseAttr,
+    clamp,
+    type ScrollEffect,
+    type EffectInstance,
+    type ScrollContext,
+} from '../types';
 
 const BREAKPOINT_MD = 768;
 const DEFAULT_TITLE_DELAY = 0.2;
@@ -19,7 +25,9 @@ export const splitHeadingEffect: ScrollEffect = {
         const startRatio = parseAttr(element, 'data-split-start', DEFAULT_START_RATIO);
         const endRatio = parseAttr(element, 'data-split-end', DEFAULT_END_RATIO);
 
-        const gapMobileRaw = parseFloat(element.getAttribute('data-split-initial-gap-mobile') ?? '');
+        const gapMobileRaw = parseFloat(
+            element.getAttribute('data-split-initial-gap-mobile') ?? ''
+        );
         const gapSharedRaw = parseFloat(element.getAttribute('data-split-initial-gap') ?? '');
         const initialGapMobile = Number.isFinite(gapMobileRaw)
             ? gapMobileRaw
@@ -58,14 +66,17 @@ export const splitHeadingEffect: ScrollEffect = {
                 const rect = element.getBoundingClientRect();
                 let progress: number;
 
-                if (ctx.prefersReducedMotion || (ctx.isFirstRender && rect.top < ctx.viewportHeight * 1.15)) {
+                if (
+                    ctx.prefersReducedMotion ||
+                    (ctx.isFirstRender && rect.top < ctx.viewportHeight * 1.15)
+                ) {
                     progress = 1;
                 } else {
                     progress = clamp(
                         (ctx.viewportHeight * startRatio - rect.top) /
                             (ctx.viewportHeight * (startRatio - endRatio)),
                         0,
-                        1,
+                        1
                     );
                 }
 
