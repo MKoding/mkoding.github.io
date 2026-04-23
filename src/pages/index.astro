@@ -1,147 +1,68 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import NumberedItem from '../components/NumberedItem.astro';
+import Card from '../components/Card.astro';
+import CtaSection from '../components/CtaSection.astro';
 ---
 
 <BaseLayout
     pageTitle="MKoding — Ingeniería de software con criterio"
     pageDescription="Ingeniería de software y dirección tecnológica con criterio. Ayudamos a empresas a empezar bien sus proyectos digitales."
 >
-    <!-- HERO -->
-    <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
-        <div class="hero-bg-container"></div>
-
-        <div class="section-content">
-            <div class="content-block max-w-3xl">
-                <h1 class="mb-6">MKoding</h1>
-                <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
-                    Ingeniería de software y dirección tecnológica con criterio.
-                </p>
-                <p class="text-lg mb-8">
-                    MKoding es una firma pequeña de ingeniería de software: cercana, responsable y
-                    que trabaja cara a cara. Desde una web o tienda online hasta una app o un
-                    sistema de inventarios, te acompañamos para dar los primeros pasos en tu
-                    proyecto con claridad comprendiendo tus necesidades. Y si ya tienes equipo
-                    técnico, te ayudamos a ordenar prioridades, decidir y avanzar con criterio sin
-                    perder tiempo ni calidad.
-                </p>
-
-                <div class="flex justify-center md:justify-start">
-                    <a href="/contacto/" class="btn"> Hablemos </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <Hero
+        title="MKoding"
+        subtitle="Ingeniería de software y dirección tecnológica con criterio."
+        ctaText="Hablemos"
+        ctaUrl="/contacto/"
+    >
+        <p class="text-lg mb-8">
+            MKoding es una firma pequeña de ingeniería de software: cercana, responsable y que
+            trabaja cara a cara. Desde una web o tienda online hasta una app o un sistema de
+            inventarios, te acompañamos para dar los primeros pasos en tu proyecto con claridad
+            comprendiendo tus necesidades. Y si ya tienes equipo técnico, te ayudamos a ordenar
+            prioridades, decidir y avanzar con criterio sin perder tiempo ni calidad.
+        </p>
+    </Hero>
 
     <!-- PROBLEMA -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
             <div class="space-y-16">
-                <div class="section-header">
-                    <h2
-                        class="split-heading"
-                        data-split-heading
-                        data-split-mobile-only
-                        data-split-start="0.75"
-                        data-split-end="0.6"
-                        data-split-title-delay="0.5"
-                    >
-                        <span class="split-icon" data-split-icon="left">
-                            <img
-                                src="/icons/mkoding-split-1.svg"
-                                alt=""
-                                class="split-icon-image theme-switch-icon"
-                            />
-                        </span>
-                        <span class="split-title md:px-2" data-split-title>
-                            Cuando falta equipo o claridad
-                        </span>
-                        <span class="split-icon" data-split-icon="right">
-                            <img
-                                src="/icons/mkoding-split-2.svg"
-                                alt=""
-                                class="split-icon-image theme-switch-icon"
-                            />
-                        </span>
-                    </h2>
-                </div>
+                <SectionHeader
+                    title="Cuando falta equipo o claridad"
+                    align="left"
+                    mobileOnly
+                    iconPadding={false}
+                />
 
                 <div class="numbered-items">
-                    <div
-                        class="numbered-item scroll-parallax parallax-right md:items-center"
-                        data-parallax-freeze-point="0.6"
-                    >
-                        <div class="numbered-item-icon md:p-0">
-                            <div class="numbered-item-circle md:h-12 md:w-12">
-                                <div
-                                    class="numbered-item-icon-image md:h-8 md:w-8"
-                                    data-icon="compass-off"
-                                >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="numbered-item-content">
-                            <h3 class="numbered-item-title">No sabes por dónde empezar.</h3>
-                            <p class="numbered-item-description">
-                                Web, app, inventarios, CRM. Hay demasiadas opciones y poca claridad
-                                sobre cómo el software aporta valor a tu empresa, qué es lo primero
-                                que hay que hacer y qué es lo que realmente importa.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="numbered-item scroll-parallax parallax-right md:items-center"
-                        data-parallax-freeze-point="0.7"
-                    >
-                        <div class="numbered-item-icon md:p-0">
-                            <div class="numbered-item-circle md:h-12 md:w-12">
-                                <div
-                                    class="numbered-item-icon-image md:h-8 md:w-8"
-                                    data-icon="wrench"
-                                >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="numbered-item-content">
-                            <h3 class="numbered-item-title">Proveedores que cambian cada año.</h3>
-                            <p class="numbered-item-description">
-                                Cada nueva persona entrega algo distinto. Nadie conoce el sistema,
-                                ni la forma en la que se trabaja en tu negocio y mantener el
-                                software cuesta cada vez más.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="numbered-item scroll-parallax parallax-right md:items-center"
-                        data-parallax-freeze-point="0.7"
-                    >
-                        <div class="numbered-item-icon md:p-0">
-                            <div class="numbered-item-circle md:h-12 md:w-12">
-                                <div
-                                    class="numbered-item-icon-image md:h-8 md:w-8"
-                                    data-icon="puzzle"
-                                >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="numbered-item-content">
-                            <h3 class="numbered-item-title">
-                                Soluciones pegadas y sin mantenimiento.
-                            </h3>
-                            <p class="numbered-item-description">
-                                Se combinan herramientas sin integración: hojas de cálculo, software
-                                de terceros y procesos manuales que no escalan ni se complementan
-                                entre sí.
-                            </p>
-                        </div>
-                    </div>
+                    <NumberedItem
+                        title="No sabes por dónde empezar."
+                        description="Web, app, inventarios, CRM. Hay demasiadas opciones y poca claridad sobre cómo el software aporta valor a tu empresa, qué es lo primero que hay que hacer y qué es lo que realmente importa."
+                        icon="compass-off"
+                        freezePoint={0.6}
+                    />
+                    <NumberedItem
+                        title="Proveedores que cambian cada año."
+                        description="Cada nueva persona entrega algo distinto. Nadie conoce el sistema, ni la forma en la que se trabaja en tu negocio y mantener el software cuesta cada vez más."
+                        icon="wrench"
+                        freezePoint={0.7}
+                    />
+                    <NumberedItem
+                        title="Soluciones pegadas y sin mantenimiento."
+                        description="Se combinan herramientas sin integración: hojas de cálculo, software de terceros y procesos manuales que no escalan ni se complementan entre sí."
+                        icon="puzzle"
+                        freezePoint={0.7}
+                    />
                 </div>
 
                 <div class="section-divider">
                     <p class="divider-text">
-                        <strong>El problema no es el tamaño de la empresa.</strong> Es la falta de claridad
-                        y de alguien que acompañe el proceso con cercanía y responsabilidad.
+                        <strong>El problema no es el tamaño de la empresa.</strong> Es la falta de
+                        claridad y de alguien que acompañe el proceso con cercanía y
+                        responsabilidad.
                     </p>
                 </div>
             </div>
@@ -151,34 +72,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- PROPUESTA -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
-            <div class="section-header">
-                <h2
-                    class="split-heading"
-                    data-split-heading
-                    data-split-start="0.75"
-                    data-split-end="0.6"
-                    data-split-title-delay="0.5"
-                >
-                    <span class="split-icon" data-split-icon="left">
-                        <img
-                            src="/icons/mkoding-split-1.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
-                        />
-                    </span>
-                    <span class="split-title md:px-2" data-split-title>
-                        Enfoque artesanal y responsable
-                    </span>
-                    <span class="split-icon" data-split-icon="right">
-                        <img
-                            src="/icons/mkoding-split-2.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
-                        />
-                    </span>
-                </h2>
-            </div>
-
+            <SectionHeader title="Enfoque artesanal y responsable" align="left" />
             <div class="content-block">
                 <p class="scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
                     No trabajamos como una gran consultora donde el proyecto cambia de manos
@@ -186,13 +80,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     contigo en persona, revisamos de cerca tu proyecto y asumimos responsabilidad
                     técnica de principio a fin.
                 </p>
-
                 <p class="scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
                     Si ya tienes equipo, trabajamos codo con codo para ordenar y decidir mejor. Si
                     no lo tienes, empezamos contigo paso a paso. Web, app, ecommerce o sistemas
                     internos, siempre con foco en impacto real para tu negocio.
                 </p>
-
                 <p class="scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
                     Nuestro papel es claro: acompañarte como ingenieros y como una dirección técnica
                     interna. Somos cercanos, nos responsabilizamos de lo que hacemos, y estamos ahí
@@ -206,113 +98,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- SERVICIOS -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
-            <div class="section-header flex justify-center">
-                <h2
-                    class="split-heading"
-                    data-split-heading
-                    data-split-start="0.75"
-                    data-split-end="0.6"
-                    data-split-title-delay="0.5"
-                >
-                    <span class="split-icon" data-split-icon="left">
-                        <img
-                            src="/icons/mkoding-split-1.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
-                        />
-                    </span>
-                    <span class="split-title md:px-2" data-split-title>
-                        Servicios con criterio técnico
-                    </span>
-                    <span class="split-icon" data-split-icon="right">
-                        <img
-                            src="/icons/mkoding-split-2.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
-                        />
-                    </span>
-                </h2>
-            </div>
-
+            <SectionHeader title="Servicios con criterio técnico" align="center" />
             <div class="services-grid">
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4 flex items-center gap-3">
-                        <div class="service-icon" data-icon="rocket"></div>
-                        <span>Arranque digital</span>
-                    </h3>
-                    <p class="text-base leading-relaxed">
-                        Te ayudamos a empezar con una base clara: web, ecommerce, app o sistema
-                        interno. De cero, ajustado a tus necesidades y mantenible a lo largo de los
-                        años.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4 flex items-center gap-3">
-                        <div class="service-icon" data-icon="compass"></div>
-                        <span>Dirección técnica</span>
-                    </h3>
-                    <p class="text-base leading-relaxed">
-                        Te acompañamos en las decisiones clave, en la selección de herramientas e
-                        incluso te ayudamos a formar tu propio equipo de desarrollo. Siempre con
-                        foco en tu negocio, la calidad y en construir soluciones que duren.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4 flex items-center gap-3">
-                        <div class="service-icon" data-icon="gear"></div>
-                        <span>Desarrollo y mejora</span>
-                    </h3>
-                    <p class="text-base leading-relaxed">
-                        Revisamos y mejoramos lo que ya tienes o construimos nuevas funcionalidades
-                        con pragmatismo, calidad y una visión clara. Siempre con foco en tu negocio,
-                        sin perder tiempo ni dinero en soluciones complejas o a medias.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-4 flex items-center gap-3">
-                        <div class="service-icon" data-icon="school"></div>
-                        <span>Mentoría y acompañamiento</span>
-                    </h3>
-                    <p class="text-base leading-relaxed">
-                        Si ya tienes tu propio equipo y quieres potenciarlo, lo acompañamos con
-                        asesoría, mentorías y buenas prácticas para que crezca con autonomía. Desde
-                        la arquitectura y flujos de trabajo hasta el código limpio y sostenible en
-                        el tiempo.
-                    </p>
-                </div>
+                <Card
+                    title="Arranque digital"
+                    description="Te ayudamos a empezar con una base clara: web, ecommerce, app o sistema interno. De cero, ajustado a tus necesidades y mantenible a lo largo de los años."
+                    icon="rocket"
+                    direction="right"
+                />
+                <Card
+                    title="Dirección técnica"
+                    description="Te acompañamos en las decisiones clave, en la selección de herramientas e incluso te ayudamos a formar tu propio equipo de desarrollo. Siempre con foco en tu negocio, la calidad y en construir soluciones que duren."
+                    icon="compass"
+                    direction="left"
+                />
+                <Card
+                    title="Desarrollo y mejora"
+                    description="Revisamos y mejoramos lo que ya tienes o construimos nuevas funcionalidades con pragmatismo, calidad y una visión clara. Siempre con foco en tu negocio, sin perder tiempo ni dinero en soluciones complejas o a medias."
+                    icon="gear"
+                    direction="right"
+                />
+                <Card
+                    title="Mentoría y acompañamiento"
+                    description="Si ya tienes tu propio equipo y quieres potenciarlo, lo acompañamos con asesoría, mentorías y buenas prácticas para que crezca con autonomía. Desde la arquitectura y flujos de trabajo hasta el código limpio y sostenible en el tiempo."
+                    icon="school"
+                    direction="left"
+                />
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO FINAL -->
-    <section class="pb-32 md:pb-40">
-        <div class="section-content">
-            <div class="section-header text-center">
-                <div class="mb-16 md:mb-20 flex justify-center">
-                    <div class="mkoding-logo-wrapper">
-                        <img
-                            src="/icons/mkoding-circle-white.svg"
-                            alt="MKoding"
-                            class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-dark"
-                        />
-                    </div>
-                    <div class="mkoding-logo-wrapper">
-                        <img
-                            src="/icons/mkoding-circle-black.svg"
-                            alt="MKoding"
-                            class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-light"
-                        />
-                    </div>
-                </div>
-                <h2>Tu empresa depende del software y merece estar bien construido.</h2>
-            </div>
-
-            <div class="flex justify-center">
-                <a href="/contacto/" class="btn"> Hablemos de tu proyecto </a>
-            </div>
-        </div>
-    </section>
+    <CtaSection
+        heading="Tu empresa depende del software y merece estar bien construido."
+        ctaText="Hablemos de tu proyecto"
+        ctaUrl="/contacto/"
+    />
 </BaseLayout>

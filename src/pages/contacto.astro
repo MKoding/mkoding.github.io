@@ -1,24 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SplitHeading from '../components/SplitHeading.astro';
 ---
 
 <BaseLayout
     pageTitle="Contacto — MKoding"
     pageDescription="Ponte en contacto con MKoding. Cuéntanos sobre tu proyecto, tus desafíos y cómo podemos ayudarte."
 >
-    <!-- HERO -->
-    <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
-        <div class="hero-bg-container"></div>
-
-        <div class="section-content">
-            <div class="content-block max-w-3xl">
-                <h1 class="mb-6">Hablemos de tu proyecto</h1>
-                <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
-                    Cuéntanos sobre tus desafíos tecnológicos. Sin compromisos, sin presión.
-                </p>
-            </div>
-        </div>
-    </section>
+    <Hero
+        title="Hablemos de tu proyecto"
+        subtitle="Cuéntanos sobre tus desafíos tecnológicos. Sin compromisos, sin presión."
+    />
 
     <!-- FORMULARIO DE CONTACTO -->
     <section class="pb-24 md:pb-32">
@@ -111,31 +104,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="max-w-2xl mx-auto">
                 <div>
                     <div class="flex justify-center mb-12 md:mb-18">
-                        <h2
-                            class="split-heading"
-                            data-split-heading
-                            data-split-start="0.85"
-                            data-split-end="0.65"
-                            data-split-title-delay="0.5"
-                        >
-                            <span class="split-icon" data-split-icon="left">
-                                <img
-                                    src="/icons/mkoding-split-1.svg"
-                                    alt=""
-                                    class="split-icon-image theme-switch-icon pr-0.2 md:pr-0.75 lg:pr-0.5"
-                                />
-                            </span>
-                            <span class="split-title px-1 md:px-1" data-split-title>
-                                Otras formas de contactarnos
-                            </span>
-                            <span class="split-icon" data-split-icon="right">
-                                <img
-                                    src="/icons/mkoding-split-2.svg"
-                                    alt=""
-                                    class="split-icon-image theme-switch-icon pl-0.2 md:pl-0.75 lg:pl-0.5"
-                                />
-                            </span>
-                        </h2>
+                        <SplitHeading
+                            title="Otras formas de contactarnos"
+                            splitStart={0.85}
+                            splitEnd={0.65}
+                        />
                     </div>
                     <div class="flex flex-wrap gap-4 justify-center">
                         <!-- Teléfono -->
@@ -202,7 +175,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 const mensaje =
                     (document.getElementById('mensaje') as HTMLTextAreaElement)?.value ?? '';
 
-                // Validar que los campos obligatorios no estén vacíos
                 if (!nombre.trim() || !email.trim() || !tipo.trim() || !mensaje.trim()) {
                     alert('Por favor, completa todos los campos obligatorios.');
                     return;

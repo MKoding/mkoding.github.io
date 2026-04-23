@@ -1,90 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Card from '../components/Card.astro';
+import CtaSection from '../components/CtaSection.astro';
 ---
 
 <BaseLayout
     pageTitle="Preguntas frecuentes — MKoding"
     pageDescription="Respuestas a las preguntas más comunes sobre encaje de proyecto, presupuesto, arranque y continuidad en MKoding."
 >
-    <!-- HERO -->
-    <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
-        <div class="hero-bg-container"></div>
+    <Hero
+        title="Preguntas frecuentes"
+        subtitle="Todo lo importante antes de empezar: encaje, presupuesto, arranque y evolución."
+    >
+        <p class="text-base md:text-lg text-foreground-secondary max-w-2xl">
+            Hemos agrupado las respuestas en 4 apartados para que encuentres rápido lo que
+            necesitas según el momento en el que estés.
+        </p>
+    </Hero>
 
-        <div class="section-content">
-            <div class="content-block max-w-3xl">
-                <h1 class="mb-6">Preguntas frecuentes</h1>
-                <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">
-                    Todo lo importante antes de empezar: encaje, presupuesto, arranque y evolución.
-                </p>
-                <p class="text-base md:text-lg text-foreground-secondary max-w-2xl">
-                    Hemos agrupado las respuestas en 4 apartados para que encuentres rápido lo que
-                    necesitas según el momento en el que estés.
-                </p>
-            </div>
-        </div>
-    </section>
     <!-- ANTES DE EMPEZAR -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
-            <div class="section-header flex justify-center">
-                <h2
-                    class="split-heading"
-                    data-split-heading
-                    data-split-mobile-only
-                    data-split-start="0.75"
-                    data-split-end="0.6"
-                    data-split-title-delay="0.5"
-                >
-                    <span class="split-icon" data-split-icon="left">
-                        <img
-                            src="/icons/mkoding-split-1.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
-                        />
-                    </span>
-                    <span class="split-title px-1 md:px-2" data-split-title>Antes de empezar</span>
-                    <span class="split-icon" data-split-icon="right">
-                        <img
-                            src="/icons/mkoding-split-2.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
-                        />
-                    </span>
-                </h2>
-            </div>
-
+            <SectionHeader title="Antes de empezar" align="center" mobileOnly />
             <div class="max-w-2xl mx-auto space-y-6">
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
-                    <h3 class="mb-2">
-                        No tengo conocimientos técnicos, ¿podéis ayudarme igualmente?
-                    </h3>
-                    <p class="text-base leading-relaxed">
-                        Precisamente para eso existimos. No hace falta que entiendas de tecnología.
-                        Nuestro trabajo es escuchar, entender tu negocio, traducir tus necesidades a
-                        soluciones técnicas y explicarte todo con claridad. Trabajamos contigo mano
-                        a mano para que tomes decisiones informadas sin sentirte perdido.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-2">¿Qué tipo de proyectos encajan mejor?</h3>
-                    <p class="text-base leading-relaxed">
-                        Web corporativa, ecommerce, aplicaciones y sistemas internos en empresas que
-                        necesitan claridad técnica, cercanía y una ejecución responsable. Nos
-                        adaptamos a tus necesidades.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
-                    <h3 class="mb-2">¿Qué os diferencia de otras consultoras?</h3>
-                    <p class="text-base leading-relaxed">
-                        Nuestro enfoque artesanal y la cercanía. No somos una gran consultora donde
-                        el proyecto cambia de manos constantemente. En MKoding trabajamos contigo
-                        desde primera línea, con responsabilidad técnica de principio a fin. Como el
-                        ebanista frente al carpintero improvisado: cuidamos cada detalle,
-                        priorizamos calidad sobre volumen y construimos para que dure.
-                    </p>
-                </div>
+                <Card
+                    title="No tengo conocimientos técnicos, ¿podéis ayudarme igualmente?"
+                    description="Precisamente para eso existimos. No hace falta que entiendas de tecnología. Nuestro trabajo es escuchar, entender tu negocio, traducir tus necesidades a soluciones técnicas y explicarte todo con claridad. Trabajamos contigo mano a mano para que tomes decisiones informadas sin sentirte perdido."
+                    direction="right"
+                    freezePoint={0.55}
+                />
+                <Card
+                    title="¿Qué tipo de proyectos encajan mejor?"
+                    description="Web corporativa, ecommerce, aplicaciones y sistemas internos en empresas que necesitan claridad técnica, cercanía y una ejecución responsable. Nos adaptamos a tus necesidades."
+                    direction="left"
+                    freezePoint={0.6}
+                />
+                <Card
+                    title="¿Qué os diferencia de otras consultoras?"
+                    description="Nuestro enfoque artesanal y la cercanía. No somos una gran consultora donde el proyecto cambia de manos constantemente. En MKoding trabajamos contigo desde primera línea, con responsabilidad técnica de principio a fin. Como el ebanista frente al carpintero improvisado: cuidamos cada detalle, priorizamos calidad sobre volumen y construimos para que dure."
+                    direction="right"
+                    freezePoint={0.65}
+                />
             </div>
         </div>
     </section>
@@ -92,61 +50,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- PRESUPUESTO Y FORMA DE TRABAJO -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
-            <div class="section-header flex justify-center">
-                <h2
-                    class="split-heading"
-                    data-split-heading
-                    data-split-start="0.75"
-                    data-split-end="0.6"
-                    data-split-title-delay="0.5"
-                >
-                    <span class="split-icon" data-split-icon="left">
-                        <img
-                            src="/icons/mkoding-split-1.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
-                        />
-                    </span>
-                    <span class="split-title px-1 md:px-2" data-split-title>
-                        Presupuesto y forma de trabajo
-                    </span>
-                    <span class="split-icon" data-split-icon="right">
-                        <img
-                            src="/icons/mkoding-split-2.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
-                        />
-                    </span>
-                </h2>
-            </div>
-
+            <SectionHeader title="Presupuesto y forma de trabajo" align="center" />
             <div class="max-w-2xl mx-auto space-y-6">
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
-                    <h3 class="mb-2">¿Cómo trabajáis los presupuestos?</h3>
-                    <p class="text-base leading-relaxed">
-                        Trabajamos con estimación de horas por alcance. Antes de empezar, definimos
-                        objetivos, entregables y prioridades para que tengas visibilidad del
-                        esfuerzo y evitemos sorpresas.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-2">¿Trabajáis por horas o por proyecto cerrado?</h3>
-                    <p class="text-base leading-relaxed">
-                        Normalmente por horas estimadas y por fases. Es una forma más realista de
-                        adaptar el trabajo a lo que va necesitando el negocio sin perder control del
-                        presupuesto.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
-                    <h3 class="mb-2">¿Podéis trabajar con nuestro equipo actual?</h3>
-                    <p class="text-base leading-relaxed">
-                        Sí. Podemos incorporarnos como apoyo técnico para ayudar a priorizar,
-                        revisar arquitectura, acompañar decisiones, realizar formaciones y ejecutar
-                        mejoras cuando sea necesario.
-                    </p>
-                </div>
+                <Card
+                    title="¿Cómo trabajáis los presupuestos?"
+                    description="Trabajamos con estimación de horas por alcance. Antes de empezar, definimos objetivos, entregables y prioridades para que tengas visibilidad del esfuerzo y evitemos sorpresas."
+                    direction="right"
+                    freezePoint={0.55}
+                />
+                <Card
+                    title="¿Trabajáis por horas o por proyecto cerrado?"
+                    description="Normalmente por horas estimadas y por fases. Es una forma más realista de adaptar el trabajo a lo que va necesitando el negocio sin perder control del presupuesto."
+                    direction="left"
+                    freezePoint={0.6}
+                />
+                <Card
+                    title="¿Podéis trabajar con nuestro equipo actual?"
+                    description="Sí. Podemos incorporarnos como apoyo técnico para ayudar a priorizar, revisar arquitectura, acompañar decisiones, realizar formaciones y ejecutar mejoras cuando sea necesario."
+                    direction="right"
+                    freezePoint={0.65}
+                />
             </div>
         </div>
     </section>
@@ -154,70 +77,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- ARRANQUE Y COLABORACION -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
-            <div class="section-header flex justify-center">
-                <h2
-                    class="split-heading"
-                    data-split-heading
-                    data-split-start="0.75"
-                    data-split-end="0.6"
-                    data-split-title-delay="0.5"
-                >
-                    <span class="split-icon" data-split-icon="left">
-                        <img
-                            src="/icons/mkoding-split-1.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
-                        />
-                    </span>
-                    <span class="split-title px-1 md:px-2" data-split-title
-                        >Arranque y colaboración</span
-                    >
-                    <span class="split-icon" data-split-icon="right">
-                        <img
-                            src="/icons/mkoding-split-2.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
-                        />
-                    </span>
-                </h2>
-            </div>
-
+            <SectionHeader title="Arranque y colaboración" align="center" />
             <div class="max-w-2xl mx-auto space-y-6">
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
-                    <h3 class="mb-2">¿Cómo es el primer paso para empezar con vosotros?</h3>
-                    <p class="text-base leading-relaxed">
-                        Empezamos con una reunión inicial sin compromiso para entender tu contexto,
-                        objetivos y bloqueos. A partir de ahí te proponemos un plan claro de
-                        siguientes pasos, prioridades y forma de trabajo.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-2">¿Trabajáis en remoto o también en persona?</h3>
-                    <p class="text-base leading-relaxed">
-                        Podemos trabajar de las dos formas. Combinamos sesiones remotas con trabajo
-                        en persona cuando aporta más valor para revisar prioridades, alinear equipo
-                        y tomar decisiones clave cara a cara.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
-                    <h3 class="mb-2">¿Cuánto suele tardar en arrancar un proyecto?</h3>
-                    <p class="text-base leading-relaxed">
-                        Depende del alcance, pero normalmente en pocos días podemos hacer el
-                        diagnóstico inicial y definir el plan. La ejecución suele arrancar en una o
-                        dos semanas una vez alineados objetivos y prioridades.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.75">
-                    <h3 class="mb-2">¿Qué necesitáis de nuestra parte para trabajar bien?</h3>
-                    <p class="text-base leading-relaxed">
-                        Sobre todo claridad de negocio y una persona de referencia para decisiones.
-                        Con eso podemos avanzar contigo en persona o en remoto, priorizar bien y
-                        mantener ritmo sin fricción.
-                    </p>
-                </div>
+                <Card
+                    title="¿Cómo es el primer paso para empezar con vosotros?"
+                    description="Empezamos con una reunión inicial sin compromiso para entender tu contexto, objetivos y bloqueos. A partir de ahí te proponemos un plan claro de siguientes pasos, prioridades y forma de trabajo."
+                    direction="right"
+                    freezePoint={0.55}
+                />
+                <Card
+                    title="¿Trabajáis en remoto o también en persona?"
+                    description="Podemos trabajar de las dos formas. Combinamos sesiones remotas con trabajo en persona cuando aporta más valor para revisar prioridades, alinear equipo y tomar decisiones clave cara a cara."
+                    direction="left"
+                    freezePoint={0.6}
+                />
+                <Card
+                    title="¿Cuánto suele tardar en arrancar un proyecto?"
+                    description="Depende del alcance, pero normalmente en pocos días podemos hacer el diagnóstico inicial y definir el plan. La ejecución suele arrancar en una o dos semanas una vez alineados objetivos y prioridades."
+                    direction="right"
+                    freezePoint={0.65}
+                />
+                <Card
+                    title="¿Qué necesitáis de nuestra parte para trabajar bien?"
+                    description="Sobre todo claridad de negocio y una persona de referencia para decisiones. Con eso podemos avanzar contigo en persona o en remoto, priorizar bien y mantener ritmo sin fricción."
+                    direction="left"
+                    freezePoint={0.75}
+                />
             </div>
         </div>
     </section>
@@ -225,92 +110,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- CONTINUIDAD Y EVOLUCION -->
     <section class="pb-24 md:pb-32">
         <div class="section-content">
-            <div class="section-header flex justify-center">
-                <h2
-                    class="split-heading"
-                    data-split-heading
-                    data-split-start="0.75"
-                    data-split-end="0.6"
-                    data-split-title-delay="0.5"
-                >
-                    <span class="split-icon" data-split-icon="left">
-                        <img
-                            src="/icons/mkoding-split-1.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pr-1 lg:pr-0.5"
-                        />
-                    </span>
-                    <span class="split-title px-1 md:px-2" data-split-title
-                        >Continuidad y evolución</span
-                    >
-                    <span class="split-icon" data-split-icon="right">
-                        <img
-                            src="/icons/mkoding-split-2.svg"
-                            alt=""
-                            class="split-icon-image theme-switch-icon md:pl-1 lg:pl-0.5"
-                        />
-                    </span>
-                </h2>
-            </div>
-
+            <SectionHeader title="Continuidad y evolución" align="center" />
             <div class="max-w-2xl mx-auto space-y-6">
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.55">
-                    <h3 class="mb-2">¿Ofrecéis soporte y mantenimiento después del proyecto?</h3>
-                    <p class="text-base leading-relaxed">
-                        Sí. No desaparecemos al finalizar. Queremos seguir acompañándote con
-                        mantenimiento, nuevas funcionalidades, formación o simplemente estar
-                        disponibles cuando surjan dudas. Preferimos relaciones a largo plazo donde
-                        conocemos tu negocio y ayudamos a que evolucione con criterio.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-left" data-parallax-freeze-point="0.6">
-                    <h3 class="mb-2">¿Podemos empezar con algo pequeño y crecer después?</h3>
-                    <p class="text-base leading-relaxed">
-                        Sí. Es una forma habitual de trabajar con criterio: empezamos por lo que más
-                        impacto tiene, validamos resultados y evolucionamos por fases sin asumir más
-                        riesgo del necesario al inicio.
-                    </p>
-                </div>
-
-                <div class="card scroll-parallax parallax-right" data-parallax-freeze-point="0.65">
-                    <h3 class="mb-2">¿Y si ya tenemos software hecho y queremos mejorarlo?</h3>
-                    <p class="text-base leading-relaxed">
-                        También encaja. Podemos revisar lo que ya existe, detectar riesgos,
-                        reorganizar prioridades técnicas y ejecutar mejoras sin rehacer todo desde
-                        cero.
-                    </p>
-                </div>
+                <Card
+                    title="¿Ofrecéis soporte y mantenimiento después del proyecto?"
+                    description="Sí. No desaparecemos al finalizar. Queremos seguir acompañándote con mantenimiento, nuevas funcionalidades, formación o simplemente estar disponibles cuando surjan dudas. Preferimos relaciones a largo plazo donde conocemos tu negocio y ayudamos a que evolucione con criterio."
+                    direction="right"
+                    freezePoint={0.55}
+                />
+                <Card
+                    title="¿Podemos empezar con algo pequeño y crecer después?"
+                    description="Sí. Es una forma habitual de trabajar con criterio: empezamos por lo que más impacto tiene, validamos resultados y evolucionamos por fases sin asumir más riesgo del necesario al inicio."
+                    direction="left"
+                    freezePoint={0.6}
+                />
+                <Card
+                    title="¿Y si ya tenemos software hecho y queremos mejorarlo?"
+                    description="También encaja. Podemos revisar lo que ya existe, detectar riesgos, reorganizar prioridades técnicas y ejecutar mejoras sin rehacer todo desde cero."
+                    direction="right"
+                    freezePoint={0.65}
+                />
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO FINAL -->
-    <section class="pb-32 md:pb-40">
-        <div class="section-content">
-            <div class="section-header text-center">
-                <div class="mb-16 md:mb-20 flex justify-center">
-                    <div class="mkoding-logo-wrapper">
-                        <img
-                            src="/icons/mkoding-circle-white.svg"
-                            alt="MKoding"
-                            class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-dark"
-                        />
-                    </div>
-                    <div class="mkoding-logo-wrapper">
-                        <img
-                            src="/icons/mkoding-circle-black.svg"
-                            alt="MKoding"
-                            class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-light"
-                        />
-                    </div>
-                </div>
-                <h2>¿Tienes más preguntas?</h2>
-            </div>
-
-            <div class="flex justify-center">
-                <a href="/contacto/" class="btn"> Hablemos de tu proyecto </a>
-            </div>
-        </div>
-    </section>
+    <CtaSection
+        heading="¿Tienes más preguntas?"
+        ctaText="Hablemos de tu proyecto"
+        ctaUrl="/contacto/"
+    />
 </BaseLayout>

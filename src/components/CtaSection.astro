@@ -1,0 +1,36 @@
+---
+interface Props {
+    heading: string;
+    ctaText: string;
+    ctaUrl: string;
+}
+
+const { heading, ctaText, ctaUrl } = Astro.props;
+---
+
+<section class="pb-32 md:pb-40">
+    <div class="section-content">
+        <div class="section-header text-center">
+            <div class="mb-16 md:mb-20 flex justify-center">
+                <div class="mkoding-logo-wrapper">
+                    <img
+                        src="/icons/mkoding-circle-white.svg"
+                        alt="MKoding"
+                        class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-dark"
+                    />
+                </div>
+                <div class="mkoding-logo-wrapper">
+                    <img
+                        src="/icons/mkoding-circle-black.svg"
+                        alt="MKoding"
+                        class="w-16 h-16 md:w-20 md:h-20 mkoding-circle-light"
+                    />
+                </div>
+            </div>
+            <h2>{heading}</h2>
+        </div>
+        <div class="flex justify-center">
+            <a href={ctaUrl} class="btn">{ctaText}</a>
+        </div>
+    </div>
+</section>

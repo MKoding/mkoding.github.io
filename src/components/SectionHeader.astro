@@ -1,0 +1,27 @@
+---
+import SplitHeading from './SplitHeading.astro';
+
+interface Props {
+    title: string;
+    align?: 'left' | 'center' | 'center-start';
+    mobileOnly?: boolean;
+    splitStart?: number;
+    splitEnd?: number;
+    titleDelay?: number;
+    iconPadding?: boolean;
+    class?: string;
+}
+
+const { title, align = 'center', class: extraClass, ...headingProps } = Astro.props;
+
+const alignClass =
+    align === 'center'
+        ? ' flex justify-center'
+        : align === 'center-start'
+          ? ' flex justify-center md:justify-start'
+          : '';
+---
+
+<div class={`section-header${alignClass}${extraClass ? ` ${extraClass}` : ''}`}>
+    <SplitHeading {title} {...headingProps} />
+</div>

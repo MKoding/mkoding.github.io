@@ -1,0 +1,32 @@
+---
+interface Props {
+    title: string;
+    subtitle?: string;
+    ctaText?: string;
+    ctaUrl?: string;
+}
+
+const { title, subtitle, ctaText, ctaUrl } = Astro.props;
+---
+
+<section class="pt-32 pb-24 md:pt-40 md:pb-32 relative">
+    <div class="hero-bg-container"></div>
+    <div class="section-content">
+        <div class="content-block max-w-3xl">
+            <h1 class="mb-6">{title}</h1>
+            {
+                subtitle && (
+                    <p class="text-xl md:text-2xl font-light mb-8 hero-subtitle">{subtitle}</p>
+                )
+            }
+            <slot />
+            {
+                ctaText && ctaUrl && (
+                    <div class="flex justify-center md:justify-start">
+                        <a href={ctaUrl} class="btn">{ctaText}</a>
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</section>

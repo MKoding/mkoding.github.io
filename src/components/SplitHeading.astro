@@ -1,0 +1,44 @@
+---
+interface Props {
+    title: string;
+    mobileOnly?: boolean;
+    splitStart?: number;
+    splitEnd?: number;
+    titleDelay?: number;
+    iconPadding?: boolean;
+}
+
+const {
+    title,
+    mobileOnly = false,
+    splitStart = 0.75,
+    splitEnd = 0.6,
+    titleDelay = 0.5,
+    iconPadding = true,
+} = Astro.props;
+---
+
+<h2
+    class="split-heading"
+    data-split-heading
+    data-split-mobile-only={mobileOnly ? '' : undefined}
+    data-split-start={splitStart}
+    data-split-end={splitEnd}
+    data-split-title-delay={titleDelay}
+>
+    <span class="split-icon" data-split-icon="left">
+        <img
+            src="/icons/mkoding-split-1.svg"
+            alt=""
+            class={`split-icon-image theme-switch-icon${iconPadding ? ' md:pr-1 lg:pr-0.5' : ''}`}
+        />
+    </span>
+    <span class="split-title px-1 md:px-2" data-split-title>{title}</span>
+    <span class="split-icon" data-split-icon="right">
+        <img
+            src="/icons/mkoding-split-2.svg"
+            alt=""
+            class={`split-icon-image theme-switch-icon${iconPadding ? ' md:pl-1 lg:pl-0.5' : ''}`}
+        />
+    </span>
+</h2>
