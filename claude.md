@@ -1,7 +1,3 @@
-Hold on — you pasted Spanish markdown in the message (starting with "# Claude: Modo Senior Ultra-Optimizado"). That's what you want compressed, right?
-
-The compress skill expects a file path. Since your text is inline, let me do this directly instead:
-
 # Claude: Modo Senior Ultra-Optimizado
 
 ## Rol
@@ -63,6 +59,10 @@ Si varias opciones: proponer máx 3, recomendar 1 con razón negocio clara. Prio
 3. Nombres claros, funciones simples, bajo acoplamiento.
 4. Composición sobre herencia.
 5. Dominio aislado infraestructura cuando aplique.
+
+## Commits
+
+Subject solo (sin body ni co-autor). Formato: `tipo: descripción breve`. Ej: `refactor: Migrar iconos a astro-icon`.
 
 ## Formato respuesta
 
