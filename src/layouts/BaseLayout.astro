@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import Footer from '../components/Footer.astro';
 import { THEME_COLORS, DEFAULT_THEME } from '../scripts/tokens';
+import { bootstrapTheme } from '../scripts/themeBootstrap';
 
 const {
     pageTitle = 'MKoding — Ingeniería de software con criterio',
@@ -50,19 +51,21 @@ const organizationLd = {
         <meta name="twitter:image" content={ogImageURL} />
 
         <script is:inline define:vars={{ THEME_COLORS, DEFAULT_THEME }}>
-            var theme;
-            try {
-                var stored = localStorage.getItem('theme');
-                theme = stored === 'dark' || stored === 'light' ? stored : null;
-            } catch (e) {}
-            if (!theme) {
-                theme = window.matchMedia('(prefers-color-scheme: dark)').matches
-                    ? 'dark'
-                    : DEFAULT_THEME;
-            }
-            document.documentElement.setAttribute('data-theme', theme);
-            var meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+            (function bootstrapTheme() {
+                let theme;
+                try {
+                    const stored = localStorage.getItem('theme');
+                    theme = stored === 'dark' || stored === 'light' ? stored : null;
+                } catch {}
+                if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+                        ? 'dark'
+                        : DEFAULT_THEME;
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+                const meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+            })();
         </script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />

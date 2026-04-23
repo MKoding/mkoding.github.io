@@ -31,6 +31,15 @@ function applyTheme(theme: ThemeName): void {
     sunIcon?.classList.toggle(ICON_HIDDEN_CLASS, isDark);
     moonIcon?.classList.toggle(ICON_HIDDEN_CLASS, !isDark);
 
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.setAttribute(
+            'aria-label',
+            isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'
+        );
+        toggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
     const meta = document.querySelector('meta[name="theme-color"]');
     meta?.setAttribute('content', THEME_COLORS[theme]);
 
