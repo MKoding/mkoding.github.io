@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import Footer from '../components/Footer.astro';
+import { THEME_COLORS, DEFAULT_THEME } from '../scripts/tokens';
 
 const {
     pageTitle = 'MKoding — Ingeniería de software con criterio',
@@ -11,8 +12,6 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('/og-image-white.png', Astro.site);
-const darkThemeColor = '#0f0f0f';
-const lightThemeColor = '#ffffff';
 
 const organizationLd = {
     '@context': 'https://schema.org',
@@ -28,12 +27,12 @@ const organizationLd = {
 ---
 
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme={DEFAULT_THEME}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="color-scheme" content="dark light" />
-        <meta name="theme-color" content={darkThemeColor} />
+        <meta name="theme-color" content={THEME_COLORS[DEFAULT_THEME]} />
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <link rel="canonical" href={canonicalURL} />
@@ -50,14 +49,20 @@ const organizationLd = {
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content={ogImageURL} />
 
-        <script is:inline>
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-
-            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-            if (themeColorMeta) {
-                themeColorMeta.setAttribute('content', theme === 'dark' ? '#0f0f0f' : '#ffffff');
+        <script is:inline define:vars={{ THEME_COLORS, DEFAULT_THEME }}>
+            var theme;
+            try {
+                var stored = localStorage.getItem('theme');
+                theme = stored === 'dark' || stored === 'light' ? stored : null;
+            } catch (e) {}
+            if (!theme) {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : DEFAULT_THEME;
             }
+            document.documentElement.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
         </script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -91,10 +96,10 @@ const organizationLd = {
 
         <script>
             import { initializeThemeSystem } from '../scripts/themeSystem.ts';
-            import { initializeParallaxSystem } from '../scripts/parallaxSystem.ts';
+            import { initializeAnimationSystem } from '../scripts/animation/index.ts';
 
             initializeThemeSystem();
-            initializeParallaxSystem();
+            initializeAnimationSystem();
         </script>
     </body>
 </html>

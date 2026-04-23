@@ -1,51 +1,49 @@
-type ThemeName = 'dark' | 'light';
+import { THEME_COLORS, DEFAULT_THEME, THEME_STORAGE_KEY, type ThemeName } from './tokens';
 
-const THEME_STORAGE_KEY = 'theme';
-const DEFAULT_THEME: ThemeName = 'light';
-const THEME_DARK: ThemeName = 'dark';
-const THEME_LIGHT: ThemeName = 'light';
 const ICON_HIDDEN_CLASS = 'hidden';
 
-function applyThemeColorMeta(themeName: ThemeName): void {
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (!themeColorMeta) {
-        return;
-    }
-
-    const color = themeName === THEME_DARK ? '#0f0f0f' : '#ffffff';
-    themeColorMeta.setAttribute('content', color);
+function readStoredTheme(): ThemeName | null {
+    try {
+        const stored = localStorage.getItem(THEME_STORAGE_KEY);
+        if (stored === 'dark' || stored === 'light') return stored;
+    } catch {}
+    return null;
 }
 
-function getStoredTheme(): ThemeName {
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    return (stored as ThemeName) || DEFAULT_THEME;
+function writeStoredTheme(theme: ThemeName): void {
+    try {
+        localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch {}
 }
 
-function applyThemeToDocument(themeName: ThemeName): void {
-    const htmlElement = document.documentElement;
+function resolveTheme(): ThemeName {
+    const stored = readStoredTheme();
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : DEFAULT_THEME;
+}
+
+function applyTheme(theme: ThemeName): void {
+    document.documentElement.setAttribute('data-theme', theme);
+
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
+    const isDark = theme === 'dark';
+    sunIcon?.classList.toggle(ICON_HIDDEN_CLASS, isDark);
+    moonIcon?.classList.toggle(ICON_HIDDEN_CLASS, !isDark);
 
-    htmlElement.setAttribute('data-theme', themeName);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    meta?.setAttribute('content', THEME_COLORS[theme]);
 
-    const isDarkTheme = themeName === THEME_DARK;
-    sunIcon?.classList.toggle(ICON_HIDDEN_CLASS, isDarkTheme);
-    moonIcon?.classList.toggle(ICON_HIDDEN_CLASS, !isDarkTheme);
-    applyThemeColorMeta(themeName);
-
-    localStorage.setItem(THEME_STORAGE_KEY, themeName);
+    writeStoredTheme(theme);
 }
 
-function toggleThemeMode(): void {
-    const htmlElement = document.documentElement;
-    const currentTheme = htmlElement.getAttribute('data-theme') as ThemeName;
-    const nextTheme = currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK;
-    applyThemeToDocument(nextTheme);
+function toggleTheme(): void {
+    const current = document.documentElement.getAttribute('data-theme') as ThemeName;
+    applyTheme(current === 'dark' ? 'light' : 'dark');
 }
 
 function initializeTheme(): void {
-    const preferredTheme = getStoredTheme();
-    applyThemeToDocument(preferredTheme);
+    applyTheme(resolveTheme());
 }
 
 export function initializeThemeSystem(): void {
@@ -54,7 +52,5 @@ export function initializeThemeSystem(): void {
     } else {
         initializeTheme();
     }
-
-    const themeToggleButton = document.getElementById('theme-toggle');
-    themeToggleButton?.addEventListener('click', toggleThemeMode);
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
 }
