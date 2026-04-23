@@ -1,0 +1,46 @@
+@layer components {
+    /* Form Fields */
+    .form-input,
+    .form-select,
+    .form-textarea {
+        @apply w-full px-4 py-3 rounded-lg border transition-all duration-200;
+        background-color: var(--color-surface);
+        border-color: var(--color-border);
+        color: var(--color-text);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        font-family: inherit;
+    }
+
+    .form-input::placeholder,
+    .form-select option,
+    .form-textarea::placeholder {
+        color: var(--color-text-tertiary);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+        outline: none;
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        background-color: var(--color-surface);
+    }
+
+    .form-textarea {
+        resize: none;
+        font-family: inherit;
+    }
+
+    .form-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a8b2ba' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 2.5rem;
+    }
+
+    [data-theme='light'] .form-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    }
+}
